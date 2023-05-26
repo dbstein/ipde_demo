@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import scipy as sp
 import scipy.linalg
@@ -21,7 +22,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # number of points discretizing the inner boundary
-nb2 = 200
+nb2 = int(sys.argv[1])
 nb1 = 2*nb2
 
 ################################################################################
@@ -101,3 +102,4 @@ print("Error is : {:0.3e}".format(err.max()))
 fig, ax = plt.subplots()
 clf = err.plot(ax)
 fig.colorbar(clf)
+plt.show(block=True)
